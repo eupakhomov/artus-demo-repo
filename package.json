@@ -1,0 +1,11 @@
+{
+  "name": "artus-demo-repo",
+  "version": "1.0.0",
+  "description": "A tiny sales-report CLI and HTTP service, used as the sample project for the Artus demo",
+  "type": "module",
+  "license": "Apache-2.0",
+  "scripts": {
+    "test": "node --test",
+    "start": "node src/server.js"
+  }
+}
