@@ -1,6 +1,6 @@
 {
   "name": "artus-demo-repo",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A tiny sales-report CLI and HTTP service, used as the sample project for the Artus demo",
   "type": "module",
   "license": "Apache-2.0",

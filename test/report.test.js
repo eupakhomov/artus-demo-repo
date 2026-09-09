@@ -8,8 +8,8 @@ const sales = [
   { product: 'a', amount: 2, at: '2026-03-01T00:00:00Z' },
 ];
 
-test('totals sums per product', () => {
-  assert.deepEqual(totals(sales), [{ name: 'a', total: 3 }, { name: 'b', total: 5 }]);
+test('totals sums per product, largest first', () => {
+  assert.deepEqual(totals(sales), [{ name: 'b', total: 5 }, { name: 'a', total: 3 }]);
 });
 
 test('formatReport prints a header and one line per product', () => {

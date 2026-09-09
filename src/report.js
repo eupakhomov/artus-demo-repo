@@ -1,8 +1,8 @@
-/** Sums sales per product: [{product, amount, at}] -> [{name, total}]. */
+/** Sums sales per product: [{product, amount, at}] -> [{name, total}], largest first. */
 export function totals(sales) {
   const byName = new Map();
   for (const s of sales) byName.set(s.product, (byName.get(s.product) ?? 0) + s.amount);
-  return [...byName].map(([name, total]) => ({ name, total }));
+  return [...byName].map(([name, total]) => ({ name, total })).sort((a, b) => b.total - a.total);
 }
 
 /** A plain-text table of the totals. */
