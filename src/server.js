@@ -1,8 +1,13 @@
 import { createServer } from 'node:http';
 import { sales } from './data.js';
 import { totals } from './report.js';
+import { limit } from './rateLimiter.js';
 
 export const server = createServer((req, res) => {
+  if (!limit(req.socket.remoteAddress)) {
+    res.writeHead(429, { 'retry-after': '60' }).end();
+    return;
+  }
   if (req.url === '/report') {
     res.writeHead(200, { 'content-type': 'application/json' });
     res.end(JSON.stringify(totals(sales)));
