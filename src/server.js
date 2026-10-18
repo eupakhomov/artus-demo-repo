@@ -3,6 +3,11 @@ import { sales } from './data.js';
 import { totals } from './report.js';
 
 export const server = createServer((req, res) => {
+  if (req.url === '/health') {
+    res.writeHead(200, { 'content-type': 'application/json' });
+    res.end(JSON.stringify({ status: 'ok' }));
+    return;
+  }
   if (req.url === '/report') {
     res.writeHead(200, { 'content-type': 'application/json' });
     res.end(JSON.stringify(totals(sales)));
